@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!--Author: Sandra Tang-->
-<!--Uses Twitter Bootstrap-->
-
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -35,29 +31,34 @@ h1, h2, h3, h4, h5, h6{
   .thumbnail{
     padding: 30px;
   }
+  div.demo {
+    display:table;
+    width:100%;
+    table-layout: fixed;
+  }
+  div.demo span {
+      display:table-cell;
+      text-align:center;
+      border: none;
+      letter-spacing: 2px;
+  }
 </style>
 
 <body>
 
 <nav style="background-color: black; padding: 10px; position: fixed; width: 100%; z-index: 999">
-  <div style="letter-spacing: 2px;">
-    <a href="#" style="visibility: hidden">_____</a>
-    <a href="#" style="color: white">OFERA</a>
-    <a href="#" style="visibility: hidden">__________</a>
-    <a href="#" style="color: white">HOME</a>
-    <a href="#" style="visibility: hidden">__________</a>
-    <a href="#" style="color: white">ABOUT</a>
-    <a href="#" style="visibility: hidden">__________</a>
-    <a href="#" style="color: white">ARTICLES</a>
-    <a href="#" style="visibility: hidden">__________</a>
-    <a href="#" style="color: white">CONTACT</a>
-  </div>
+  <div class="demo">
+    <span><a href="#" style="color:white;">HOME</a></span>
+    <span><a href="#" style="color:white;">ABOUT</a></span>
+    <span><a href="#" style="color:white;">ARTICLES</a></span>
+    <span><a href="#" style="color:white;">CONTACT</a></span>
+</div>
 </nav>
 
 <!-- Landing Page Image and words over it -->
 <img src="https://wallpaper-house.com/data/out/7/wallpaper2you_202136.jpg" style="object-fit: cover; width: 100%; height: 100vh;">
 <h1 style="margin: auto; position: absolute; top: 43vh; left: 35vw; font-size: 7vw;color: white; letter-spacing: 20px; font-weight: bold;">Ofera</h1>
-<h3 style="margin: auto; position: absolute; top: 95vh; left: 25px; font-size: 10px; color: white;">FACEBOOK / TWITTER / INSTAGRAM</h3>
+<h3 style="margin: auto; position: absolute; top: 95vh; left: 25px; font-size: 10px; color: white;"><a href="#" style="color:white;">FACEBOOK</a> / <a href="#" style="color:white;">TWITTER</a> / <a href="#" style="color:white;">INSTAGRAM</a></h3>
 
 <!-- Featured Articles Section -->
 <div class="container" style="align-content: center">
