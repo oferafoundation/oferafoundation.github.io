@@ -40,3 +40,23 @@ div.demo span {
   width: 20vw;
   height: auto;
 }
+.featured-image{
+  margin-bottom: 20px;
+  object-fit: cover;
+  max-height: 300px;
+  width: 100%
+}
+.img-thumbnail{
+  margin-bottom: 15px;
+  object-fit: cover;
+  max-height: 150px;
+  width: 100%
+}
+.carousel-photo {
+  object-fit: cover;
+  max-height: 250px;
+  width: 100%
+}
+.col-sm-4 h6{
+  text-align: center;
+}
