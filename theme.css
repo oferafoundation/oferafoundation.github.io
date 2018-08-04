@@ -39,6 +39,7 @@ div.demo span {
   min-width: 200px;
   width: 20vw;
   height: auto;
+  margin: 5px
 }
 .carousel-photo {
   object-fit: cover;
