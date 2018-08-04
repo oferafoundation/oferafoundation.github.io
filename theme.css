@@ -36,10 +36,11 @@ div.demo span {
   font-weight: 300;
 }
 .profile-pic{
+  object-fit: cover;
   min-width: 200px;
   width: 20vw;
   height: auto;
-  margin: 5px
+  margin: 5px;
 }
 .carousel-photo {
   object-fit: cover;
