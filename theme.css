@@ -13,6 +13,7 @@ div{
 h1, h2, h3, h4, h5, h6{
 font-weight: bold;
 text-transform: uppercase;
+line-height: 1.5;
 }
 h1, h2 {
   letter-spacing: 4px;
@@ -21,9 +22,16 @@ h3, h4, h5, h6{
   letter-spacing: 1px;
 }
 .thumbnail{
-  padding: 30px;
-  margin: 50px;
+  padding: 0;
+  box-shadow: none;
+  transition: all 200ms ease-out;
 }
+
+.thumbnail:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+
 div.header {
   display:table;
   table-layout: fixed;
@@ -37,20 +45,24 @@ div.header span {
   font-weight: 300;
 }
 
-.img-thumbnail{
-  margin-bottom: 15px;
+img-item {
+  margin: 0;
   object-fit: cover;
   max-height: 150px;
   width: 100%
 }
+
+.image-description {
+  padding: 30px;
+}
+
 .carousel-photo {
   object-fit: cover;
-  height: 40vw;
-  min-height: 300px;
-  max-height: 80vh;
+  height: 10px;
   width: 100%
 }
-.col-sm-4 h6{
+
+.col-sm-4 h5, .col-sm-4 p{
   text-align: center;
 }
 .featured-image {
@@ -72,6 +84,14 @@ div.header span {
   color: white;
 }
 
+.color-container {
+  position: relative;
+  text-align: left;
+  color: white;
+  margin: 0; 
+  padding: 70px;
+}
+
 .centered {
   position: absolute;
   top: 50%;
@@ -79,58 +99,10 @@ div.header span {
   transform: translate(-50%, -50%);
 }
 
-}
-.fill {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden
-}
-.fill img {
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 500px;
-    widht: auto;
-}
-.profile-pic{
-    width: 20vw;
-    min-width: 200px;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 @media only screen and (max-width: 767px) {
   div.header{
     display:table;
       table-layout: auto;
       width: 100%;
-  }
-  
-  .thumbnail{
-  margin: 10px;
-  }
-  .profile-pic{
-    width: 70vw;
-    max-width: 500px;
-    height: auto;
-  }
-  
-  .header a {
-  	font-size: 10px;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .headline {
-    font-size: 50px;
-  }
-  .subheadline {
-    font-size: 20px;
-  }
-  .thumbnail{
-  padding: 50px;
-  margin: 70px;
   }
 }
