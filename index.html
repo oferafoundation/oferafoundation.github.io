@@ -21,10 +21,14 @@
 	  <span><a href="https://oferafoundation.github.io/articles">ARTICLES</a></span>
     <span><a href="https://oferafoundation.github.io/contact">CONTACT</a></span>
     <span><a href="https://oferafoundation.github.io/donate">DONATE</a></span>
-    <span><input type="text" placeholder="Search.."></span>
+    <span id="searchbar">
+	<form onsubmit="searchpages(event)">
+	    <input type="text" placeholder="Search...">
+	<form>
+    </span>
   </div>
 </nav>
-	
+
 <!--Featured Image and Title-->
 <div class="image-container" style="">
   <img src="http://oi66.tinypic.com/105dvkx.jpg" class="featured-image dark">
@@ -133,4 +137,13 @@
     </div>
 </div>
 
+<script>
+	function searchpages(e){
+		e.preventDefault();
+		let seachtext = document.getElementById("searchbar").children[0].children[0].value;
+		window.location.assign("search?q="+encodeURIComponent(searchtext));
+	}
+</script>
+	  
 </body>
+</html>
