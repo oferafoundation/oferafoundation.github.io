@@ -10,12 +10,30 @@
 
 
 <script>
-  function searchpage(){ //returns a boolean
-  
+  (function loadsearch(){
+    const articles = ["article-acid","article-bees","article-example","article-risingsea"];
+    const pages = ["about","articles","contact","donate","index","search"];
+    if(location.search){
+      let querystring = location.search;
+      for(let a in articles) searchArticle(articles[a], querystring.substring(3));
+      for(let a in pages) searchPage(pages[a], querystring.substring(3));
+    }
+  })();
+  function searchArticle(page,searchText){ 
+    //articles only have the title, url, author, and body text searched 
+    //idk how to order by relevence
+    if(false) addArticle(page,"And this is where the result text would go");
   }
-  function addArticle(){ //oeifwefoiijweoi
+  function searchPage(page,searchText){ 
+    //for the page, search the page title, url, and literally all of the page text
+    //idk how to order by relevence
+    if(false) addPage(page,"And this is where the result text would go");
   }
-  function addPage(){
+  function addArticle(page,resultText){ //oeifwefoiijweoi
+    
+  }
+  function addPage(page,resultText){ //ogjroigjwrgwrg wg im brain ded right now don't judge
+    
   }
 </script>
 
