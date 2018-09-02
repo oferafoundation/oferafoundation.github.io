@@ -31,7 +31,11 @@ h3, h4, h5, h6{
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
 
-.unstyledlink {
+.unstyledlink,
+.unstyledlink a:link,
+.unstyledlink a:visited,
+.unstyledlink a:hover,
+.unstyledlink a:active {
   color: inherit;
   text-decoration: inherit;
 }
