@@ -32,7 +32,8 @@ h3, h4, h5, h6{
 }
 
 .unstyledlink,
-.unstyledlink:hover {
+.unstyledlink:hover,
+.unstyledlink:visited{
   color: inherit;
   text-decoration: inherit;
 }
