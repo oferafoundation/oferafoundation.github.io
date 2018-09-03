@@ -90,7 +90,7 @@
 	let imageplaces = document.getElementsByClassName("load-image");
 	for(let a in imageplaces) imageplaces[a].src = articleData.image;    
         
-        let contentdiv = document.getElementById("articletext");
+        let contentdiv = document.getElementById("articleText");
         let str = "";
         for(let a in articleData.content){
           str = str+articleData.content[a]+"<br>";
