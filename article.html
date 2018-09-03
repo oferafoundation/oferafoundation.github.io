@@ -33,7 +33,7 @@
 <h1 class="centered load-title" style="color: white; line-height: 1.5; text-align: center">[varied content]</h1>
  
 <!--Content-->
-<div class="container" style="padding: 30px; padding-left: 20vw; padding-right: 20vw;">
+<div id="outercontentdiv" class="container" style="padding: 30px; padding-left: 20vw; padding-right: 20vw;">
   <!-- VARIED CONTENT - SUBHEADLINE OR TITLE AGAIN -->
   <h3 class="load-title">[varied content]</h3>
   <br>
@@ -69,7 +69,9 @@
             if (this.readyState == 4 && this.status == 200) {
                 let articleData = JSON.parse(this.responseText);
                 addContent(articleData);
-            }
+            } else if (this.readyState == 4 && this.status == 404){
+		loadFailure();
+	    }
         };
         let name = location.search.substring(3);
         xmlhttp.open("GET", "https://oferafoundation.github.io/articles/"+name+".json", true);
@@ -96,6 +98,13 @@
           str = str+articleData.content[a]+"<br>";
         }
         contentdiv.innerHTML = str;
+      }
+	
+      function loadFailure(){
+        let bannertext = document.getElementsByClassName("load-title")[0];
+	bannertext.style.color = "black";
+	bannertext.innerHTML = "Oops! We couldn't find this article. Please hail the Great Potato.";
+	document.getElementById("outercontentdiv").innerHTML = "Nothing here..."; 
       }
 </script>
 </body>
