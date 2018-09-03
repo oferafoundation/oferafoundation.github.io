@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ofera Foundation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://oferafoundation.github.io/theme.css">
+</head>
+
+<body>
+
+<nav style="background-color: white; padding: 10px; position: fixed; width: 100%; z-index: 999">
+  <div class="header">
+    <span><a href="https://oferafoundation.github.io/">HOME</a></span>
+    <span><a href="https://oferafoundation.github.io/about">ABOUT</a></span>
+    <span><a href="https://oferafoundation.github.io/articles">ARTICLES</a></span>
+    <span><a href="https://oferafoundation.github.io/contact">CONTACT</a></span>
+    <span><a href="https://oferafoundation.github.io/donate">DONATE</a></span>
+    <!--<span><input type="text" placeholder="Search.."></span>-->
+  </div>
+</nav>
+
+<!-- DO NOT CHANGE ANY CODE ABOVE THIS LINE -->
+
+<!-- VARIED CONTENT - FEATURED IMAGE - THE BIG ONE ON TOP -->
+<img src="[varied content]" class="featured-image">
+<!-- VARIED CONTENT - ARTICLE TITLE -->
+<h1 class="centered load-title" style="color: white; line-height: 1.5; text-align: center">[varied content]</h1>
+ 
+<!--Content-->
+<div class="container" style="padding: 30px; padding-left: 20vw; padding-right: 20vw;">
+  <!-- VARIED CONTENT - SUBHEADLINE OR TITLE AGAIN -->
+  <h3 class="load-title">[varied content]</h3>
+  <br>
+  <!-- VARIED CONTENT - BYLINE -->
+  <p style="font-weight: bold;">By <span class="load-author">[varied content]</span></p>
+  <hr>
+  <!-- VARIED CONTENT - ARTICLE BEGINS -->
+  <div id="articleText">[varied content]</div>
+  <!-- VARIED CONTENT - ARTICLE ENDS -->
+</div>
+<!-- Footer -->
+<div class="color-container" style="background-color: rgb(20, 20, 20);">
+    <div class="row">
+    	<div class="col-sm-3">
+		<p>Home</p>
+	    </div>
+	    <div class="col-sm-3">
+		<p>About</p>
+        </div>
+        <div class="col-sm-3">
+        	<p>Contact</p>
+	    </div>
+	    <div class="col-sm-3">
+            <p>Donate</p>
+	    </div>
+        </div>
+    </div>
+    
+<script>
+      (function loadContent(){
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let articleData = JSON.parse(this.responseText);
+                addContent(articleData);
+            }
+        };
+        let name = location.search.substring(3);
+        xmlhttp.open("GET", "https://oferafoundation.github.io/articles/"+name+".json", true);
+        
+        //IMPORTANT: DO NOT SHORTEN THE ABOVE URL. 
+        //Shortening the url leaves this page vulnerable to a cross site scripting attack
+        //Someone could send a user a url that points to this page, but the query string leads to the attacker's json
+        //which has a malicous script, which will then run (since we load html from json). 
+        
+        xmlhttp.send();
+      })();
+      
+      function addContent(articleData){
+        let titleplaces = document.getElementsByClassName("load-title");
+        for(let a in titleplaces) titleplaces[a].innerHTML = articleData.title;
+        let authorplaces = document.getElementsByClassName("load-author");
+        for(let a in authorplaces) authorplaces[a].innerHTML = articleData.author;
+        
+        let contentdiv = document.getElementById("articletext");
+        let str = "";
+        for(let a in articleData.content){
+          str = str+articleData.content[a]+"<br>";
+        }
+        contentdiv.innerHTML = str;
+      }
+</script>
+</body>
+</html>
