@@ -141,14 +141,5 @@ input[type=text]:focus {
       table-layout: auto;
       width: 100%;
   }
-.expand {
-	overflow: hidden;
-	position: relative;
-	}
-.expand a:hover{
-	.col-sm-4 {
-		height: 200%
-	}
-	}
 	
 }
