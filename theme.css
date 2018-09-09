@@ -145,7 +145,7 @@ input[type=text]:focus {
 	overflow: hidden;
 	position: relative;
 	}
-.expand:hover{
+.expand a:hover{
 	.col-sm-4 {
 		height: 200%
 	}
