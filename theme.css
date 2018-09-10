@@ -54,6 +54,8 @@ div.header span {
 
 img-item {
   margin: 0;
+	width: 80px;
+	height: 100px;
   object-fit: cover;
   max-height: 150px;
   width: 100%
