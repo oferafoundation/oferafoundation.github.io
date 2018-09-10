@@ -27,6 +27,10 @@ h3, h4, h5, h6{
   transition: all 200ms ease-out;
 }
 
+.thumbnail img{
+	height: 250px;
+	width: auto;
+
 .thumbnail:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
