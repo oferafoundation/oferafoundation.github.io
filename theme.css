@@ -25,7 +25,15 @@ h3, h4, h5, h6{
   padding: 0;
   box-shadow: none;
   transition: all 200ms ease-out;
+width: 100%;
+height: auto;
+overflow: auto;
 }
+
+.thumbnail img{
+	width: 100%;
+	height: auto;
+	display: block;
 
 .thumbnail:hover {
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
@@ -54,9 +62,10 @@ div.header span {
 
 img-item {
   margin: 0;
-	width: 80px;
-	height: 100px;
+	width: 100%;
   object-fit: cover;
+max-height: 150px;
+	
 }
 
 .image-description {
