@@ -83,7 +83,7 @@
 	<div class="col-sm-4">
             <!-- Person -->
         	<div class="thumbnail profile-container">
-		<div class="blurb-container">
+		<div class="blurb-container fade">
 			<p><small>Cynthia Lin is currently a seventeen-year-old senior in Arcadia High School that loves to help the environment. Even though Cynthia grew up in the suburbs, she was raised to appreciate nature. Throughout her childhood and to this very day, her family continues to visit the mountains, beach, national parks and the likes. However, throughout these adventures she has seen the sad, slow but sure deterioration of our environment. Through joining Ofera, Cynthia hopes to inspire others, raise awareness, and take action to save the place we all call home. For now, Cynthia is unsure as to what the future holds but is excited for college!</small></p>
     			<div class="blurb-readmore"><p>Read more</p></div>
  		</div>
@@ -285,23 +285,25 @@
     </div>
 
 	<script>
-		let fadings = document.getElementsByClassName("fade");
-		let fmouseon = new Array(fadings.length);
-		let ps = new Array(fadings.length);
-		for(let a=0;a<fadings.length;a++){
-			fmouseon[a] = false;
-			ps[a] = 0;
-			fadings[a].style.opacity = ps[a];
-			fadings[a].onmouseover = function(e){fmouseon[a] = true;}
-			fadings[a].onmouseout = function(e){fmouseon[a] = false;}
-		}
-		(function updateFadeAnimation(){
+		(function setUpFadeClass(){
+			let fadings = document.getElementsByClassName("fade");
+			let fmouseon = new Array(fadings.length);
+			let ps = new Array(fadings.length);
 			for(let a=0;a<fadings.length;a++){
-				if(ps[a]>0&&!fmouseon[a]) ps[a] -= (ps[a])*0.1+0.001;
-				if(ps[a]<1&& fmouseon[a]) ps[a]+=(1-ps[a])*0.1+0.001; 
+				fmouseon[a] = false;
+				ps[a] = 0;
 				fadings[a].style.opacity = ps[a];
+				fadings[a].onmouseover = function(e){fmouseon[a] = true;}
+				fadings[a].onmouseout = function(e){fmouseon[a] = false;}
 			}
-			window.requestAnimationFrame(updateFadeAnimation);
+			(function updateFadeAnimation(){
+				for(let a=0;a<fadings.length;a++){
+					if(ps[a]>0&&!fmouseon[a]) ps[a] -= (ps[a])*0.1+0.001;
+					if(ps[a]<1&& fmouseon[a]) ps[a]+=(1-ps[a])*0.1+0.001; 
+					fadings[a].style.opacity = ps[a];
+				}
+				window.requestAnimationFrame(updateFadeAnimation);
+			})();
 		})();
 	</script>
 	
