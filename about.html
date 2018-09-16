@@ -284,6 +284,26 @@
         </div>
     </div>
 
-
+	<script>
+		let fadings = document.getElementsByClassName("fade");
+		let fmouseon = new Array(fadings.length);
+		let ps = new Array(fadings.length);
+		for(let a=0;a<fadings.length;a++){
+			fmouseon[a] = false;
+			ps[a] = 0;
+			fadings[a].style.opacity = ps[a];
+			fadings[a].onmouseover = function(e){fmouseon[a] = true;}
+			fadings[a].onmouseout = function(e){fmouseon[a] = false;}
+		}
+		(function updateFadeAnimation(){
+			for(let a=0;a<fadings.length;a++){
+				if(ps[a]>0&&!fmouseon[a]) ps[a] -= (ps[a])*0.1+0.001;
+				if(ps[a]<1&& fmouseon[a]) ps[a]+=(1-ps[a])*0.1+0.001; 
+				fadings[a].style.opacity = ps[a];
+			}
+			window.requestAnimationFrame(updateFadeAnimation);
+		})();
+	</script>
+	
 </body>
 </html>
