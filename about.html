@@ -298,9 +298,16 @@
 			}
 			(function updateFadeAnimation(){
 				for(let a=0;a<fadings.length;a++){
-					if(ps[a]>0&&!fmouseon[a]) ps[a] -= (ps[a])*0.1+0.001;
-					if(ps[a]<1&& fmouseon[a]) ps[a]+=(1-ps[a])*0.1+0.001; 
-					fadings[a].style.opacity = ps[a];
+					if(ps[a]>0&&!fmouseon[a]){ 
+						ps[a] -= (ps[a])*0.15+0.001;
+						if(ps[a]<0) ps[a] = 0;
+						fadings[a].style.opacity = ps[a];
+					}
+					else if(ps[a]<1&& fmouseon[a]){ 
+						ps[a]+=(1-ps[a])*0.15+0.001; 
+						if(ps[a]>1) ps[a] = 1;
+						fadings[a].style.opacity = ps[a];
+					}
 				}
 				window.requestAnimationFrame(updateFadeAnimation);
 			})();
