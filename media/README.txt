@@ -1,0 +1,1 @@
+This directery is where we store stuff like important images and videos that we need to keep on the server. For example, the wallpaper for the home page is here, as well as the logo. Less important media, such as pictures for individual articles, can be linked from an external site.
