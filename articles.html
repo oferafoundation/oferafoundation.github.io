@@ -33,8 +33,7 @@
   </div>
 
 <div class="container">
-	<div class="row">
-  		<p>Articles coming soon.</p>
+	<div class="row" id="load-articles">
 		
 		<div class="col-sm-4">
 		<div class="thumbnail">
@@ -110,6 +109,62 @@
 	    </div>
         </div>
     </div>
+	
+	
+<script>
+	
+      (function loadContent(){
+        let xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let listData = JSON.parse(this.responseText);
+                loadSuccess(listData);
+            } else if (this.readyState == 4 && this.status == 404){
+		        loadFailure();
+	    }
+        };
+        xmlhttp.open("GET", "https://oferafoundation.github.io/articles/articleslist.json", true);
+        xmlhttp.send();
+      })();
+	
+	
+	function loadSuccess(listData){
+        for(let a in listData.articles){
+            let xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let articleData = JSON.parse(this.responseText);
+                    addArticle(listData.articles[a], articleData.image, articleData.title, articleData.caption);
+                } else if (this.readyState == 4 && this.status == 404){
+		            //do nothing: the user must never know...
+                    //if our database/list of articles goes down though, this might be a problem
+	            }
+            };
+            xmlhttp.open("GET", "https://oferafoundation.github.io/articles/"+listData.articles[a]+".json", true);
+            
+            //IMPORTANT: DO NOT SHORTEN THE ABOVE URL. 
+            //If the article list has a malicous url in it, we DON'T want that to be forwarded to here.
+            
+            xmlhttp.send();
+        }
+    }
+    
+    function addArticle(link,image,title,caption){
+        let newel = document.createElement("div");
+        newel.classList.add("col-sm-4");
+        newel.innerHTML = "<div class=\"thumbnail\"><a href=\""+link+"\" class=\"unstyledlink\"><img class=\"img-item" src=\""+image+"\"><div class=\"image-description\"><h3>"+title+"</h3><p>"+caption+"</p></div></a></div>";
+        document.getElementById("load-articles").appendChild(newel);
+    }
+    function loadFailure(){
+        document.getElementById("load-articles").innerHTML = "<h1>Oops...I think I lost my list of articles. So, how was your day?</h1>";
+    }
+	
+	
+	
+	
+	
+	
+</script>
 
 </body>
 </html>
