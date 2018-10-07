@@ -152,7 +152,7 @@
     function addArticle(link,image,title,caption){
         let newel = document.createElement("div");
         newel.classList.add("col-sm-4");
-        newel.innerHTML = "<div class=\"thumbnail\"><a href=\""+link+"\" class=\"unstyledlink\"><img class=\"img-item" src=\""+image+"\"><div class=\"image-description\"><h3>"+title+"</h3><p>"+caption+"</p></div></a></div>";
+        newel.innerHTML = "<div class=\"thumbnail\"><a href=\""+link+"\" class=\"unstyledlink\"><img class=\"img-item\" src=\""+image+"\"><div class=\"image-description\"><h3>"+title+"</h3><p>"+caption+"</p></div></a></div>";
         document.getElementById("load-articles").appendChild(newel);
     }
     function loadFailure(){
