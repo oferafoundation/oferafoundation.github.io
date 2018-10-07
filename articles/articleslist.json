@@ -1,0 +1,12 @@
+{
+  "articles":[
+    "/article.html?q=article-acid",
+    "/article.html?q=article-bees",
+    "/article.html?q=article-example",
+    "/article.html?q=article-risingsea",
+    "/article.html?q=article-straws"
+  ],
+  "other":[
+    "/article.html?q=abouttheteam"
+  ]
+}
